@@ -15,19 +15,21 @@ app.use(express.json());
 app.use(cors({
   origin: '*',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-}));;
+}));
 
 // ייבוא הראוטים
 const userRoutes = require('./routes/userRoutes');
 const authRoutes = require('./routes/authRoutes');
 const messageRoutes = require('./routes/messageRoutes');
 const reviewRoutes = require('./routes/reviewRoutes');
+const externalApiRoutes = require('./routes/externalApiRoutes'); // הוספנו כאן
 
 // שימוש בראוטים
 app.use('/api/users', userRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/messages', messageRoutes);
 app.use('/api/reviews', reviewRoutes);
+app.use('/api/external', externalApiRoutes); // הוספנו כאן
 
 // הרצת השרת
 const PORT = process.env.PORT || 5050;
